@@ -1,6 +1,7 @@
 # mine
 assets/
 instructions.md
+package-lock.json
 
 # Logs
 logs
