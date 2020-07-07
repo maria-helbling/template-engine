@@ -33,6 +33,44 @@ const addManager = () => {
 
 }
 
+//create a new Engineer object
+const addEngineer = () => {
+    //push an Engineer specific question to the questions array
+    questions.push({
+        type: 'input',
+        message: 'What is the Engineer\'s GitHub username?',
+        name: 'gitHub'
+    })
+    //get input
+    inquirer.prompt(questions).then(answers => {
+        //new Engineer object
+        const newGuy = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
+        //push it to the employee array
+        employees.push(newGuy)
+        //start over
+        inputEmployees();
+    }).catch(err => err)
+
+}
+
+//create a new Intern object
+const addIntern = () => {
+    //push an Intern specific question to the questions array
+    questions.push({
+        type: 'input',
+        message: 'What school does the Intern attend?',
+        name: 'school'
+    })
+    //get input
+    inquirer.prompt(questions).then(answers => {
+        //new Intern object
+        const newGuy = new Intern(answers.name, answers.id, answers.email, answers.school)
+        //push it to the employee array
+        employees.push(newGuy)
+        //start over
+        inputEmployees();
+    }).catch(err => err)
+}
 
 //Initiate user input gathering
 const inputEmployees = () => {
@@ -53,14 +91,15 @@ const inputEmployees = () => {
     }]).then(answer => {
         if (answer.type === 'Render results') {
             console.log('Rendering results')
+            console.log(employees)
         } else if (answer.type === 'Manager') {
             addManager();
         } else if (answer.type === 'Engineer') {
             console.log('Engineer')
-            // addEngineer();
+            addEngineer();
         } else {
             console.log('Intern')
-            // addIntern();
+            addIntern();
         }
     }).catch(err => err)
 }
