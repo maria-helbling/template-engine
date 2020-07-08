@@ -1,7 +1,7 @@
 # Template generator for employee info
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-This is a Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person. [Here is a walk through]() of the app's functionality.
+This is a Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person. [Here is a walk through](https://drive.google.com/file/d/14S4RGVLyDHFyg1OuUcIHwy3lV049IeZX/view) of the app's functionality.
 
 ## Description
 
