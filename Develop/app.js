@@ -20,7 +20,13 @@ const addManager = () => {
     questions.push({
         type: 'input',
         message: 'What is the Manager\'s office number?',
-        name: 'officeNumber'
+        name: 'officeNumber',
+        validate: async input => {
+            if (isNaN(input.replace(/\s+/g, ''))){
+                return "That is not a phone number"
+            }
+                return true
+            }
     })
     //get input
     inquirer.prompt(questions).then(answers => {
@@ -40,7 +46,8 @@ const addEngineer = () => {
     questions.push({
         type: 'input',
         message: 'What is the Engineer\'s GitHub username?',
-        name: 'gitHub'
+        name: 'gitHub',
+        default: 'torvalds'
     })
     //get input
     inquirer.prompt(questions).then(answers => {
@@ -60,7 +67,8 @@ const addIntern = () => {
     questions.push({
         type: 'input',
         message: 'What school does the Intern attend?',
-        name: 'school'
+        name: 'school',
+        default: 'school unknown'
     })
     //get input
     inquirer.prompt(questions).then(answers => {
