@@ -1,13 +1,15 @@
-<div class="card employee-card m-2 border-0">
-    <div class="card-header bg-dark text-light text-center">
-        <h2 class="card-title">{{ name }}</h2>
-        <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>{{ role }}</h3>
-    </div>
-    <div class="card-body  bg-secondary text-light">
-        <ul class="list-group">
-            <li class="list-group-item bg-secondary text-light border-0"><strong>ID:</strong> {{ id }}</li>
-            <li class="list-group-item bg-secondary text-light border-0"><strong>Email:</strong> <a href="mailto:{{ email }}" style="color:gold">{{ email }}</a></li>
-            <li class="list-group-item bg-secondary text-light border-0"><strong>Office number:</strong> {{ officeNumber }}</li>
-        </ul>
+<div class="col-12 col-md-6 col-lg-4">
+    <div class="card employee-card m-2 border-0">
+        <div class="card-header bg-dark text-light text-center">
+            <h2 class="card-title">{{ name }}</h2>
+            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>{{ role }}</h3>
+        </div>
+        <div class="card-body  bg-secondary text-light">
+            <ul class="list-group">
+                <li class="list-group-item bg-secondary text-light border-0"><strong>ID:</strong> {{ id }}</li>
+                <li class="list-group-item bg-secondary text-light border-0"><strong>Email:</strong> <a href="mailto:{{ email }}" style="color:gold">{{ email }}</a></li>
+                <li class="list-group-item bg-secondary text-light border-0"><strong>Office number:</strong> {{ officeNumber }}</li>
+            </ul>
+        </div>
     </div>
 </div>
