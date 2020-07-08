@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const util = require('util')
 const questionObj = require('./lib/querstions')
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
@@ -72,6 +73,8 @@ const addIntern = () => {
     }).catch(err => err)
 }
 
+const writeFileAsync = util.promisify(fs.writeFile);
+
 //Initiate user input gathering
 const inputEmployees = () => {
     //start employee input with prompt
@@ -92,6 +95,11 @@ const inputEmployees = () => {
         if (answer.type === 'Render results') {
             console.log('Rendering results')
             console.log(employees)
+            const html = render(employees)
+            writeFileAsync(outputPath,html).then(
+                console.log('File created in "Output" directory')
+            )
+
         } else if (answer.type === 'Manager') {
             addManager();
         } else if (answer.type === 'Engineer') {
@@ -114,13 +122,3 @@ inputEmployees();
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
-
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
-
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
